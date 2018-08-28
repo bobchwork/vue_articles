@@ -10,6 +10,11 @@ yarn install
 yarn run serve
 ```
 
+### Runs a local fake API server
+```
+yarn run api
+```
+
 ### Compiles and minifies for production
 ```
 yarn run build
