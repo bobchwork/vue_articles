@@ -1,4 +1,4 @@
-# factorial-javascript-challenge
+# VUEJS - ARTICLES USING FAKER
 
 ## Project setup
 ```
