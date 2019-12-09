@@ -1,0 +1,53 @@
+<template>
+  <md-content fixed>
+    <div v-if="articles.length === 0">
+      <Loading />
+    </div>
+    <div v-else>
+      <div v-for="(article, index) in splittedArticles" :key="`${index}-${article.id}`">
+        <ArticleCard :article="article" />
+      </div>
+      <Pagination @goToPage="goToPage" :limit="amount" :totalLength="articles.length" />
+    </div>
+  </md-content>
+</template>
+<script>
+import ArticleCard from "@/components/Articles/ArticleCard";
+import Loading from "@/components/Common/Loading";
+import Pagination from "@/components/Common/Pagination";
+export default {
+  components: {
+    ArticleCard,
+    Loading,
+    Pagination
+  },
+  data: function() {
+    return {
+      currentPage: 0,
+    }
+  },
+  props: {
+    articles: {
+      type: Array,
+      required: true
+    },
+    amount: {
+      type: Number,
+      required: true
+    }
+  },
+  computed: {
+    splittedArticles() {
+      return this.articles.slice(this.currentPage, this.limit);
+    },
+    limit() {
+      return this.currentPage + this.amount;
+    }
+  },
+  methods: {
+    goToPage(e) {
+      this.currentPage = e;
+    }
+  },
+};
+</script>
