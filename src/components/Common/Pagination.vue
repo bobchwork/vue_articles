@@ -2,7 +2,7 @@
   <div id="pagination-container">
     <div
       class="page-number"
-      :class="{ 'current': (current === number) }"
+      :class="{ 'current': (currentPage === number) }"
       @click="selectPage(number)"
       v-for="number in numbers"
       :key="`${number}-p`"
@@ -14,7 +14,7 @@ export default {
   data: function() {
     return {
       numbers: [],
-      current: 0
+      current: 0,
     };
   },
   props: {
@@ -25,6 +25,10 @@ export default {
     totalLength: {
       type: Number,
       required: true
+    },
+    currentPage: {
+      type: Number,
+      required: true,
     }
   },
   methods: {

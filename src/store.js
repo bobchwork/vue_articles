@@ -9,7 +9,7 @@ Vue.use(Vuex);
 const state = {
   articles: [],
   amount: 4,
-  selectedArticleId: null,
+  selectedPage: 0,
 };
 
 export default new Vuex.Store({
@@ -17,13 +17,16 @@ export default new Vuex.Store({
   mutations: {
     [types.GET_ARTICLES](state, { data }) {
       state.articles = data;
+    },
+    [types.SET_SELECTED_PAGE](state, { data }) {
+      state.selectedPage = data;
     }
   },
   getters: {
     selectedArticle(state) {
       return (id) => (state.articles.find((article) => article.id === id))
     },
-    readableDate(state) {
+    readableDate() {
       return (
         (date) => {
           const transformedDate = formatDate(date);
@@ -39,5 +42,8 @@ export default new Vuex.Store({
           commit({ type: types.GET_ARTICLES, data });
         });
     },
+    setPageNumber({ commit }, number) {
+      commit({ type: types.SET_SELECTED_PAGE, data: number });
+    }
   },
 });

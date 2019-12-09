@@ -7,7 +7,12 @@
       <div v-for="(article, index) in splittedArticles" :key="`${index}-${article.id}`">
         <ArticleCard :article="article" />
       </div>
-      <Pagination @goToPage="goToPage" :limit="amount" :totalLength="articles.length" />
+      <Pagination
+        @goToPage="goToPage"
+        :limit="amount"
+        :totalLength="articles.length"
+        :currentPage="selectedPage"
+      />
     </div>
   </md-content>
 </template>
@@ -23,8 +28,8 @@ export default {
   },
   data: function() {
     return {
-      currentPage: 0,
-    }
+      currentPage: this.selectedPage
+    };
   },
   props: {
     articles: {
@@ -34,6 +39,10 @@ export default {
     amount: {
       type: Number,
       required: true
+    },
+    selectedPage: {
+      type: Number,
+      required: true,
     }
   },
   computed: {
@@ -47,7 +56,8 @@ export default {
   methods: {
     goToPage(e) {
       this.currentPage = e;
+      this.$emit("updatePageNumber", e);
     }
-  },
+  }
 };
 </script>
