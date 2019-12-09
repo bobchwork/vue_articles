@@ -2,7 +2,7 @@
 
 describe('Testing the main page', () => {
   it('Visits the Main page', () => {
-    cy.visit('/');
-    cy.get('a').should('contain', 'Main Page');
+    cy.visit('http://localhost:8080/');
+    cy.get('[data-cy="home-link"]').contains( 'Main Page');
   });
 });

@@ -1,7 +1,7 @@
 <template>
   <div>
     <div id="nav">
-      <router-link to="/">Main Page</router-link>
+      <router-link data-cy="home-link" to="/">Main Page</router-link>
     </div>
   </div>
 </template>
