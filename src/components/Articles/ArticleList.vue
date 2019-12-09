@@ -47,15 +47,14 @@ export default {
   },
   computed: {
     splittedArticles() {
-      return this.articles.slice(this.currentPage, this.limit);
+      return this.articles.slice(this.selectedPage, this.limit);
     },
     limit() {
-      return this.currentPage + this.amount;
+      return this.selectedPage + this.amount;
     }
   },
   methods: {
     goToPage(e) {
-      this.currentPage = e;
       this.$emit("updatePageNumber", e);
     }
   }

@@ -14,7 +14,6 @@ export default {
   data: function() {
     return {
       numbers: [],
-      current: 0,
     };
   },
   props: {
@@ -33,7 +32,6 @@ export default {
   },
   methods: {
     selectPage(number) {
-      this.current = number;
       this.$emit('goToPage', number);
     }
   },
