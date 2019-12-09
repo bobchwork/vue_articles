@@ -7,11 +7,11 @@ localVue.use(VueMaterial);
 
 describe('Pagination.vue', () => {
     it("selectPage is called", () => {
-        const msg = "submit"
         const wrapper = mount(Pagination, {
             propsData: {
                 totalLength: 101,
                 limit: 4,
+                currentPage: 0,
             },
             localVue
         })
