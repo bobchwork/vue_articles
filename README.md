@@ -1,5 +1,9 @@
 # VUEJS - ARTICLES USING FAKER
 
+#Description
+
+App in vuejs and vuex using faker. The data is fetched from the server and displayed in the main page with pagination.
+
 ## Project setup
 ```
 yarn install
