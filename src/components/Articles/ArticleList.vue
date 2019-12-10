@@ -17,33 +17,34 @@
   </md-content>
 </template>
 <script>
-import ArticleCard from "@/components/Articles/ArticleCard";
-import Loading from "@/components/Common/Loading";
-import Pagination from "@/components/Common/Pagination";
+import ArticleCard from '@/components/Articles/ArticleCard';
+import Loading from '@/components/Common/Loading';
+import Pagination from '@/components/Common/Pagination';
+
 export default {
   components: {
     ArticleCard,
     Loading,
-    Pagination
+    Pagination,
   },
-  data: function() {
+  data() {
     return {
-      currentPage: this.selectedPage
+      currentPage: this.selectedPage,
     };
   },
   props: {
     articles: {
       type: Array,
-      required: true
+      required: true,
     },
     amount: {
       type: Number,
-      required: true
+      required: true,
     },
     selectedPage: {
       type: Number,
       required: true,
-    }
+    },
   },
   computed: {
     splittedArticles() {
@@ -51,12 +52,12 @@ export default {
     },
     limit() {
       return this.selectedPage + this.amount;
-    }
+    },
   },
   methods: {
     goToPage(e) {
-      this.$emit("updatePageNumber", e);
-    }
-  }
+      this.$emit('updatePageNumber', e);
+    },
+  },
 };
 </script>
