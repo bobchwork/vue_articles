@@ -20,11 +20,11 @@ export default new Vuex.Store({
     },
     [types.SET_SELECTED_PAGE](state, { data }) {
       state.selectedPage = data;
-    }
+    },
   },
   getters: {
     selectedArticle(state) {
-      return (id) => (state.articles.find((article) => article.id === id))
+      return (id) => (state.articles.find((article) => article.id === id));
     },
     readableDate() {
       return (
@@ -44,6 +44,6 @@ export default new Vuex.Store({
     },
     setPageNumber({ commit }, number) {
       commit({ type: types.SET_SELECTED_PAGE, data: number });
-    }
+    },
   },
 });

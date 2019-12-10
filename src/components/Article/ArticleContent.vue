@@ -14,29 +14,30 @@
   </div>
 </template>
 <script>
-import { mapGetters } from "vuex";
-import { splitContent } from "@/helpers/helper";
+import { mapGetters } from 'vuex';
+import { splitContent } from '@/helpers/helper';
+
 export default {
   props: {
     article: {
       type: Object,
-      required: true
-    }
+      required: true,
+    },
   },
   computed: {
-    ...mapGetters(["readableDate"]),
+    ...mapGetters(['readableDate']),
     readableDateVar() {
       return this.readableDate(this.article.date);
     },
     contentArray() {
       return splitContent(this.article.content);
-    }
+    },
   },
   methods: {
     goBack() {
-      this.$router.go(-1)
-    }
-  }
+      this.$router.go(-1);
+    },
+  },
 };
 </script>
 

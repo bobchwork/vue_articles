@@ -11,31 +11,25 @@ localVue.use(VueMaterial);
 localVue.use(Vuex);
 
 const propsData = {
-    articles: [],
-    amount: 4,
-    selectedPage: 0,
+  articles: [],
+  amount: 4,
+  selectedPage: 0,
 };
 
 describe('ArticleList.vue', () => {
-    it("displays loading message", () => {
-        const wrapper = shallowMount(ArticleList, {
-            propsData,
-            localVue
-        })
+  it('displays loading message', () => {
+    const wrapper = shallowMount(ArticleList, {
+      propsData,
+      localVue,
+    });
 
-        expect(wrapper.find(Loading).exists()).toBe(true);
-    })
+    expect(wrapper.find(Loading).exists()).toBe(true);
+  });
 
-    it("The default selected page in the store is 0, 5 after change", () => {
-        const wrapper = shallowMount(ArticleList, {
-            propsData,
-            store,
-            localVue
-        });
-        const data = { data: 5 };
-        expect(store.state.selectedPage).toBe(0);
-        store.commit(types.SET_SELECTED_PAGE, data);        
-        expect(store.state.selectedPage).toBe(5);
-    })
-})
-
+  it('The default selected page in the store is 0, 5 after change', () => {
+    const data = { data: 5 };
+    expect(store.state.selectedPage).toBe(0);
+    store.commit(types.SET_SELECTED_PAGE, data);
+    expect(store.state.selectedPage).toBe(5);
+  });
+});

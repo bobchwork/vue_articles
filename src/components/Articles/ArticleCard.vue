@@ -14,31 +14,31 @@
 </template>
 
 <script>
-import { mapGetters } from "vuex";
-import { formatDate } from "@/helpers/helper";
+import { mapGetters } from 'vuex';
+
 export default {
   props: {
     article: {
       type: Object,
-      required: true
-    }
+      required: true,
+    },
   },
   computed: {
-    ...mapGetters(["readableDate"]),
-    readableDateVar: function() {
+    ...mapGetters(['readableDate']),
+    readableDateVar() {
       return this.readableDate(this.article.date);
-    }
+    },
   },
   methods: {
-    showArticle: function() {
+    showArticle() {
       this.$router.push({
-        name: "article",
+        name: 'article',
         params: {
-          id: this.article.id
-        }
+          id: this.article.id,
+        },
       });
-    }
-  }
+    },
+  },
 };
 </script>
 <style scoped>

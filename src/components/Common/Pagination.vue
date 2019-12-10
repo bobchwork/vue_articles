@@ -11,7 +11,7 @@
 </template>
 <script>
 export default {
-  data: function() {
+  data() {
     return {
       numbers: [],
     };
@@ -19,27 +19,27 @@ export default {
   props: {
     limit: {
       type: Number,
-      required: true
+      required: true,
     },
     totalLength: {
       type: Number,
-      required: true
+      required: true,
     },
     currentPage: {
       type: Number,
       required: true,
-    }
+    },
   },
   methods: {
     selectPage(number) {
       this.$emit('goToPage', number);
-    }
+    },
   },
   mounted() {
     for (let a = 0; a < this.totalLength; a += this.limit) {
       this.numbers.push(a);
     }
-  }
+  },
 };
 </script>
 <style scoped>
